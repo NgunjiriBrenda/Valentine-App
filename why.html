@@ -10,7 +10,27 @@
     <div class="container">
         <h1>Wait....why not? 😩😭</h1>
         <p>Select one or spill the tea 😝</p>
+
+        <div class="choices">
+            <button>I'm shy 🤭</button> 
+            <button>You're too cute 🥺</button> 
+            <button>I panicked 💀</button>  
+            <button>I clicked by mistake 🫣</button>
+        </div>
+         
+        <textarea placeholder="Or type your reason here..."></textarea>
+
+        <button id="submitBtn">Submit 😻💌</button>
+
     </div>
+
+    <script>
+        document.getElementById('submitBtn').addEventListener("click",() => {
+            localStorage.setItem("cameFromWhy", "true");
+            window.location.href = "index.html";
+        });
+        
+    </script>
     
 </body>
 </html>
