@@ -63,3 +63,23 @@ body {
     background: #ff6f91;
     transform: translateY(-3px);
 }
+
+#noBtn {
+    background: #ccc;
+    color: #333;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+#noBtn:hover {
+    background: #999;
+    transform: translateY(-3px);
+}
+
+.hidden {
+    display: none;
+}
+
+#result img {
+    width: 200px;
+    margin-top: 20px;
+}
