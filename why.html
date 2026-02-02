@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Why not?  </title>
+    <title>Why not?</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+
     <div class="container">
-        <h1>Wait....why not? 😩😭</h1>
+        <h1>Wait... why not? 😩😭</h1>
         <p>Select one or spill the tea 😝</p>
 
         <div class="choices">
@@ -21,16 +22,30 @@
         <textarea placeholder="Or type your reason here..."></textarea>
 
         <button id="submitBtn">Submit 😻💌</button>
-
     </div>
 
     <script>
-        document.getElementById('submitBtn').addEventListener("click",() => {
+        const textarea = document.querySelector("textarea");
+        const choiceButtons = document.querySelectorAll(".choices button");
+        const submitBtn = document.getElementById("submitBtn");
+
+       
+        choiceButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                textarea.value = button.textContent;
+            });
+        });
+
+        // Submit logic
+        submitBtn.addEventListener("click", () => {
+            const reason = textarea.value.trim() || "I was just being mysterious 😌";
+
+            localStorage.setItem("reason", reason);
             localStorage.setItem("cameFromWhy", "true");
+
             window.location.href = "index.html";
         });
-        
     </script>
-    
+
 </body>
 </html>

@@ -11,18 +11,27 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: fadenIn 2s ease-in-out;
 }
 
+@keyframes fadenIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px)
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
 .container {
+    max-width: 400px;
+    width: 100%;
     background: white;
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 
 }
 
@@ -92,7 +101,9 @@ body {
 }
 
 #result img {
-    width: 200px;
+    width: 400px;
+    height: 100%;
+    object-fit: contain;
     margin-top: 20px;
 }
 
@@ -144,16 +155,33 @@ textarea:focus {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 150%;
     height: 100%;
     pointer-events: none;
     background: pink;
     animation: fall linear forwards;
+    animation-duration: 3s;
+    max-width: 400px;
+
    
 }
 
 @keyframes fall {
     to {
         transform: translateY(100vh) rotate(360deg)
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 60px;
+    }
+    .container {
+        flex-direction: column;
+        text-align: center;
+
+    }
+    .left{
+        align-items: center
     }
 }
