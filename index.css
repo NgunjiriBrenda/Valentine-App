@@ -133,3 +133,8 @@ textarea:focus {
 .choices button:hover {
     background: #ff6f91;
 }
+
+.question-gif {
+    width: 180px;
+    margin: 10px 0;
+}
