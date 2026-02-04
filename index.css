@@ -1,35 +1,40 @@
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+/* 🌸 BODY */
 body {
-    height: 100vh;
+    min-height: 100svh; /* mobile-safe viewport */
     background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: fadenIn 2s ease-in-out;
+    padding: 16px;
+    animation: fadeIn 1.8s ease-in-out;
 }
 
-@keyframes fadenIn {
+/* 🌸 FADE IN */
+@keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(10px)
+        transform: translateY(12px);
     }
     to {
         opacity: 1;
-        transform: translateY(0)
+        transform: translateY(0);
     }
 }
+
+/* 🌸 MAIN CARD */
 .container {
-    max-width: 400px;
-    width: 90%;
+    width: 100%;
+    max-width: 380px;
     background: white;
-    padding: 30px;
-    border-radius: 30px;
+    padding: 18px;
+    border-radius: 26px;
     text-align: center;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 
@@ -38,15 +43,16 @@ body {
     align-items: center;
 }
 
-
+/* 🌸 LEFT SECTION */
 .left {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* 🌸 TITLE */
 .title {
-    font-size: 2rem;
+    font-size: clamp(1.6rem, 5vw, 2rem);
     margin-bottom: 10px;
     animation: heartBeat 1.5s infinite;
 }
@@ -60,19 +66,29 @@ body {
     }
 }
 
-.buttons{
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 8px;
-
+/* 🌸 QUESTION GIF */
+.question-gif {
+    width: clamp(120px, 40vw, 180px);
+    margin: 10px 0;
 }
 
-.button {
-    padding: 12px 25px;
-    font-size: 1rem;
+/* 🌸 BUTTONS */
+.buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.button,
+#yesBtn,
+#noBtn,
+#submitBtn {
+    width: 100px;
+    height: 40px;
+    font-size: 0.95rem;
     border: none;
-    border-radius: 30px;
+    border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -81,74 +97,64 @@ button:hover {
     transform: scale(1.05);
 }
 
+/* 🌸 YES */
 #yesBtn {
     background: #ff9a9e;
     color: white;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    width: 80px;
-    height: 30px;
-    border-radius: 15px;
-
 }
 
 #yesBtn:hover {
     background: #ff6f91;
-    transform: translateY(-3px);
-    
-
 }
 
+/* 🌸 NO */
 #noBtn {
     background: red;
     color: black;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    width: 80px;
-    height: 30px;
-    border-radius: 15px;
 }
 
 #noBtn:hover {
     background: #999;
-    transform: translateY(-3px);
 }
 
+/* 🌸 SUBMIT */
 #submitBtn {
     background: red;
     color: black;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    width: 80px;
-    height: 30px;
-    border-radius: 15px;
-
 }
 
-
+/* 🌸 HIDDEN */
 .hidden {
     display: none;
 }
 
+/* 🌸 RESULT AREA */
 #result {
+    width: 100%;
+    min-height: 200px;
     display: flex;
+    align-items: center;
     justify-content: center;
 }
 
-
 #result img {
     max-width: 100%;
+    max-height: 200px;
     height: auto;
     object-fit: contain;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
-
+/* 🌸 TEXTAREA */
 textarea {
     width: 100%;
-    height: 80px;
+    height: 70px;
     margin: 15px 0;
     padding: 10px;
     border-radius: 12px;
     border: 1px solid #ccc;
     resize: none;
+    font-size: 0.9rem;
 }
 
 textarea:focus {
@@ -157,6 +163,7 @@ textarea:focus {
     box-shadow: 0 0 5px rgba(255, 154, 158, 0.5);
 }
 
+/* 🌸 CHOICES */
 .choices {
     display: flex;
     flex-wrap: wrap;
@@ -179,43 +186,35 @@ textarea:focus {
     background: #ff6f91;
 }
 
-.question-gif {
-    width: 180px;
-    margin: 10px 0;
-}
-
-
+/* 🌸 CONFETTI */
 .confetti {
     position: fixed;
     top: 0;
     left: 0;
-    width: 150%;
+    width: 100%;
     height: 100%;
     pointer-events: none;
-    background: pink;
-    animation: fall linear forwards;
-    animation-duration: 3s;
-    max-width: 400px;
-
-   
+    animation: fall 3s linear forwards;
 }
 
 @keyframes fall {
     to {
-        transform: translateY(100vh) rotate(360deg)
+        transform: translateY(100vh) rotate(360deg);
     }
 }
 
+/* 📱 MOBILE POLISH */
 @media (max-width: 600px) {
-    body {
-        padding: 60px;
-    }
-    .container {
-        flex-direction: column;
-        text-align: center;
 
+    body {
+        align-items: flex-start;
     }
-    .left{
-        align-items: center
+
+    .container {
+        margin-top: 40px;
+    }
+
+    #result img {
+        max-height: 180px;
     }
 }
