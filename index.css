@@ -25,11 +25,11 @@ body {
     }
 }
 .container {
-    max-width: 600px;
+    max-width: 400px;
     width: 100%;
     background: white;
     padding: 30px;
-    border-radius: 20px;
+    border-radius: 20px auto;
     text-align: center;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 
